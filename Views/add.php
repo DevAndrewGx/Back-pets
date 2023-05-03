@@ -17,7 +17,7 @@
         <figure class="photo-preview">
             <img src="imgs/photo-lg-0.svg" alt="">
         </figure>
-        <form action="" method="post">
+        <form action="../Controllers/registrarPet.php" method="post">
             <input type="text" name="name" placeholder="Nombre">
             <div class="select">
                 <select name="raza">
@@ -27,7 +27,7 @@
                 </select>
             </div>
             <div class="select">
-                <select name="raza">
+                <select name="categoria">
                     <option value="">Seleccione Categoría...</option>
                     <option value="1">Perro</option>
                     <option value="2">Gato</option>
@@ -35,13 +35,13 @@
             </div>
             <button type="button" class="upload">Subir Foto</button>
             <div class="select">
-                <select name="raza">
+                <select name="genero">
                     <option value="">Seleccione Genero...</option>
                     <option value="1">Hembra</option>
                     <option value="2">Macho</option>
                 </select>
             </div>
-            <button class="save">Guardar</button>
+            <button type="submit" class="save">Guardar</button>
         </form>
     </main>
 </body>

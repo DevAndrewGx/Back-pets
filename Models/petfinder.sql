@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2023 a las 03:19:14
+-- Tiempo de generación: 03-05-2023 a las 22:47:45
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -32,6 +32,14 @@ CREATE TABLE `category` (
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `category`
+--
+
+INSERT INTO `category` (`category_id`, `name`) VALUES
+(1, 'Perro'),
+(2, 'Gato');
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +51,14 @@ CREATE TABLE `genders` (
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `genders`
+--
+
+INSERT INTO `genders` (`gender_id`, `name`) VALUES
+(1, 'Hembra'),
+(2, 'Macho');
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +67,7 @@ CREATE TABLE `genders` (
 
 CREATE TABLE `pets` (
   `Id_pet` int(11) NOT NULL,
+  `name` varchar(32) NOT NULL,
   `race_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `photo` varchar(64) NOT NULL,
@@ -67,6 +84,14 @@ CREATE TABLE `races` (
   `race_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `races`
+--
+
+INSERT INTO `races` (`race_id`, `name`) VALUES
+(1, 'Corgi'),
+(2, 'Bulldog');
 
 -- --------------------------------------------------------
 
