@@ -13,7 +13,7 @@
             <h2>Administrar Mascotas</h2>
             <a href="index.html" class="close"></a>
         </header>
-       <a href="add.html" class="add"></a>   
+       <a href="add.php" class="add"></a>   
        <table>
            <tr>
                <td>

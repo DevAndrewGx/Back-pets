@@ -1,0 +1,1 @@
+SELECT pets.name, races.name AS race, category.name AS category, genders.name AS genders FROM pets JOIN races ON pets.race_id = races.race_id JOIN category ON pets.category_id = category.category_id JOIN genders ON pets.gender_id = genders.gender_id;
