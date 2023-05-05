@@ -1,3 +1,9 @@
+<?php
+    require_once('../Models/Querys.php');
+    require_once('../Models/Conexion.php');
+    require_once('../Controllers/Cargar.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,23 +21,8 @@
         </header>
        <a href="add.php" class="add"></a>   
        <table>
-           <tr>
-               <td>
-                    <figure class="photo">
-                        <img src="imgs/photo-sm-1.svg" alt="">
-                    </figure>
-                    <div class="info">
-                        <h3>karsten</h3>
-                        <h4>Bulldog</h4>
-                    </div>
-                    <div class="controls">
-                        <a href="show.html" class="show"></a>
-                        <a href="edit.html" class="edit"></a>
-                        <a href="#" class="delete"></a>
-                    </div>
-               </td>
-           </tr>
-           <tr>
+           <?php cargar(); ?>
+           <!-- <tr>
             <td>
                 <figure class="photo">
                     <img src="imgs/photo-sm-2.svg" alt="">
@@ -110,7 +101,7 @@
                     <a href="#" class="delete"></a>
                 </div>
             </td>
-        </tr>
+        </tr> -->
        </table>
     </main>
 </body>

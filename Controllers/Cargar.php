@@ -3,27 +3,44 @@
         $consultas = new Querys();
         $filas = $consultas -> cargarMascotas();
 
-        echo "<table>
-                <tr>
-                    <th>Id_pet</th>
-                    <th>Name</th>
-                    <th>Raza</th>
-                    <th>Categoria</th>
-                    <th>Genero</th>
-                </tr>";
-
-        foreach ($filas as $fila) { 
-            echo "<tr>";
-            echo "<td>".$fila['Id_pet']."</td>";
-            echo "<td>".$fila['name']."</td>";
-            echo "<td>".$fila['name']."</td>";
-            echo "<td>".$fila['name']."</td>";
-            echo "<td>".$fila['name']."</td>";
-            // echo "<td><a href='Controlador/eliminar.php?Id_producto=".$fila['Id_producto']."'>Eliminar</td>";
-            // echo "<td><a href='modificar.php?Id_producto=".$fila['Id_producto']."'>Modificar</td>";
-            // echo "</tr>";
-            "</tr>";
+        
+        foreach($filas as $fila) {
+            echo '    
+            <tr>
+                <td>
+                    <figure class="photo">
+                        <img src="imgs/photo-sm-1.svg" alt="">
+                    </figure>
+                    <div class="info">
+                        <h3>'.$fila['name_pet'].'</h3>
+                        <h4>'.$fila['name'].'</h4>
+                    </div>
+                    <div class="controls">
+                        <a href="show.php" class="show"></a>
+                        <a href="edit.html" class="edit"></a>
+                        <a href="../Controllers/" class="delete"></a>
+                    </div>
+                </td>
+            </tr>';
         }
-        echo "</table>";
+   }
+
+   function cargarMascota() {
+    $consultas = new Querys();
+    $filas = $consultas -> buscarMascota();
+
+    
+    foreach($filas as $fila) {
+        echo '    
+            <!-- <figure class="photo-preview">
+            <img src="imgs/photo-lg-1.svg" alt="">
+        </figure>
+        <div>
+            <article class="info-name"><p>'.$filas['name_pet'].'</p></article>
+            <article class="info-race"><p>Bulldog</p>'.$filas['name'].'</article>
+            <article class="info-category"><p>Perro</p>'.$filas['name'].'</article>
+            <article class="info-gender"><p>Macho</p>'.$filas['name'].'</article>
+        </div>';
+    }
    }
 ?>

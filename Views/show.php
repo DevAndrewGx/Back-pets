@@ -1,3 +1,9 @@
+<?php
+    require_once('../Models/Querys.php');
+    require_once('../Models/Conexion.php');
+    require_once('../Controllers/Cargar.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +20,7 @@
             <a href="dashboard.html" class="back"></a>
             <a href="index.html" class="close"></a>
         </header>
-        <figure class="photo-preview">
+        <!-- <figure class="photo-preview">
             <img src="imgs/photo-lg-1.svg" alt="">
         </figure>
         <div>
@@ -22,7 +28,10 @@
             <article class="info-race"><p>Bulldog</p></article>
             <article class="info-category"><p>Perro</p></article>
             <article class="info-gender"><p>Macho</p></article>
-        </div>
+        </div> -->
+        <?php
+            cargarMascota();
+        ?>
     </main>
 </body>
 </html>

@@ -8,7 +8,7 @@
 
             // Query
 
-            $insertar = "INSERT INTO pets(name,race_id,category_id,gender_id, date_register) VALUES (:nombre, :raza, :categoria, :genero, :fecha)";
+            $insertar = "INSERT INTO pets(name_pet,race_id,category_id,gender_id, date_register) VALUES (:nombre, :raza, :categoria, :genero, :fecha)";
 
             // preparamos la query 
 
@@ -34,7 +34,7 @@
             $objConexion = new Conexion();
             $conexion = $objConexion ->get_conexion();
 
-            $leer = "SELECT pets.name, races.name AS race, category.name AS category, genders.name AS genders FROM pets JOIN races ON pets.race_id = races.race_id JOIN category ON pets.category_id = category.category_id JOIN genders ON pets.gender_id = genders.gender_id;
+            $leer = "SELECT pets.Id_pet, pets.name_pet, races.name  FROM pets JOIN races ON pets.race_id = races.race_id;
 ";
 
             $statement = $conexion -> prepare($leer);
@@ -46,5 +46,23 @@
 
             return $rows;
        }
+
+       function buscarMascota() {
+            $rows = null;
+            $objConexion = new Conexion();
+            $conexion = $objConexion ->get_conexion();
+
+            $leer = "SELECT pets.name_pet, races.name AS race, category.name AS category, genders.name AS genders FROM pets JOIN races ON pets.race_id = races.race_id JOIN category ON pets.category_id = category.category_id JOIN genders ON pets.gender_id = genders.gender_id";
+
+            $statement = $conexion -> prepare($leer);
+            $statement -> execute ();
+
+            while($response = $statement->fetch()) {
+                $rows[] = $response;
+            }
+
+            return $rows;
+        }
     }
+
 ?>
