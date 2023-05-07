@@ -1,3 +1,10 @@
+<?php
+    require_once('../Models/Querys.php');
+    require_once('../Models/Conexion.php');
+    require_once('../Controllers/Seleccionar.php')
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +24,11 @@
         <figure class="photo-preview">
             <img src="imgs/photo-lg-1.svg" alt="">
         </figure>
-        <form action="" method="post">
+
+        <?php
+            seleccionar();
+        ?>
+        <!-- <form action="" method="post">
             <input type="text" name="name" placeholder="Nombre" value="Reigner">
             <div class="select">
                 <select name="raza">
@@ -42,7 +53,7 @@
                 </select>
             </div>
             <button class="update">Modificar</button>
-        </form>
+        </form> -->
     </main>
 </body>
 </html>

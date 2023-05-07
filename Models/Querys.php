@@ -85,6 +85,25 @@
                 echo "<script>location.href='../Views/dashboard.php'</script>";
             }
         }
+
+        function modificarMascota($campo, $valor, $Id_pet) { 
+            
+            // Creamos el objeto conexion
+            $objConexion = new Conexion();
+            $conexion = $objConexion -> get_conexion();
+
+            // consulta
+
+            $modificar = "UPDATE pets SET $campo = :valor WHERE Id_pet = :Id_pet";
+
+            $statement = $conexion -> prepare($modificar);
+            $statement ->bindParam(":valor",$valor);
+            $statement -> bindParam(":Id_pet",$Id_pet);
+
+
+            $statement->execute();
+            return "Mascota Actualizada";
+        }
     }
 
 ?>
