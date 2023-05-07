@@ -15,7 +15,7 @@
 
     // creamos el objeto apartir de la clase para enviar los argumentos a una funcion especifica 
         $db_consultas = new Querys();
-        $result = $db_consultas->registrarPet($nombre, $raza, $categoria, $genero, $fecha)
+        $result = $db_consultas->registrarPet($nombre, $raza, $categoria, $genero, $fecha);
 
 
 ?>

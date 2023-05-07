@@ -34,7 +34,7 @@
             $objConexion = new Conexion();
             $conexion = $objConexion ->get_conexion();
 
-            $leer = "SELECT pets.Id_pet, pets.name_pet, races.name  FROM pets JOIN races ON pets.race_id = races.race_id;
+            $leer = "SELECT pets.Id_pet, pets.name_pet, races.name_races  FROM pets JOIN races ON pets.race_id = races.race_id;
 ";
 
             $statement = $conexion -> prepare($leer);
@@ -52,7 +52,7 @@
             $objConexion = new Conexion();
             $conexion = $objConexion ->get_conexion();
 
-            $leer = "SELECT pets.name_pet, races.name AS race, category.name AS category, genders.name AS genders FROM pets JOIN races ON pets.race_id = races.race_id JOIN category ON pets.category_id = category.category_id JOIN genders ON pets.gender_id = genders.gender_id";
+            $leer = "SELECT pets.name_pet, races.name_races, category.name_category, genders.name_genders FROM pets JOIN races on pets.race_id = races.race_id JOIN category on pets.category_id = category.category_id JOIN genders on pets.gender_id = genders.gender_id;";
 
             $statement = $conexion -> prepare($leer);
             $statement -> execute ();
@@ -62,6 +62,26 @@
             }
 
             return $rows;
+        }
+
+        function eliminarMascota($Id_pet) {
+            $objConexion = new  Conexion();
+            $conexion = $objConexion -> get_conexion(); 
+
+            $eliminar = "DELETE FROM pets where Id_pet = :Id_pet";
+
+            $statement = $conexion -> prepare($eliminar);
+            $statement -> bindParam(':Id_pet',$Id_pet);
+
+            
+            if(!$statement) { 
+                echo '<script>alert("Error no se puede eliminar la mascota")</script>';
+            }else { 
+                $statement ->execute();
+                echo '<script>alert("Mascota eliminada")</script>';
+
+                echo "<script>location.href='../Views/dashboard.php'</script>";
+            }
         }
     }
 

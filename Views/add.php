@@ -41,6 +41,7 @@
                     <option value="2">Macho</option>
                 </select>
             </div>
+
             <button type="submit" class="save">Guardar</button>
         </form>
     </main>
