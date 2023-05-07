@@ -47,19 +47,21 @@
             return $rows;
        }
 
-       function buscarMascota() {
+       function buscarMascota($Id_pet) {
             $rows = null;
             $objConexion = new Conexion();
             $conexion = $objConexion ->get_conexion();
 
-            $leer = "SELECT pets.name_pet, races.name_races, category.name_category, genders.name_genders FROM pets JOIN races on pets.race_id = races.race_id JOIN category on pets.category_id = category.category_id JOIN genders on pets.gender_id = genders.gender_id;";
+            $leer = "SELECT pets.name_pet, races.name_races, category.name_category, genders.name_genders FROM pets JOIN races on pets.race_id = races.race_id JOIN category on pets.category_id = category.category_id JOIN genders on pets.gender_id = genders.gender_id WHERE pets.Id_pet = :Id_pet;";
 
             $statement = $conexion -> prepare($leer);
-            $statement -> execute ();
+            $statement ->bindParam(':Id_pet',$Id_pet);
+            $statement -> execute();
 
             while($response = $statement->fetch()) {
                 $rows[] = $response;
             }
+
 
             return $rows;
         }

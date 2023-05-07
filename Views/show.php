@@ -1,7 +1,8 @@
 <?php
     require_once('../Models/Querys.php');
     require_once('../Models/Conexion.php');
-    require_once('../Controllers/Cargar.php')
+    require_once('../Controllers/Cargar.php');
+    require_once('../Controllers/Seleccionar.php');
 ?>
 
 <!DOCTYPE html>
