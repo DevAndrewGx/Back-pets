@@ -38,11 +38,30 @@
 ";
 
             $statement = $conexion -> prepare($leer);
-            $statement -> execute ();
+            $statement -> execute();
 
             while($response = $statement->fetch()) {
                 $rows[] = $response;
             }
+
+            return $rows;
+       }
+
+       function cargarPet($Id_pet) {
+            $rows = null;
+            $objConexion = new Conexion();
+            $conexion = $objConexion ->get_conexion();
+
+            $leer = "SELECT * FROM pets WHERE pets.Id_pet = :Id_pet";
+
+            $statement = $conexion -> prepare($leer);
+            $statement ->bindParam(':Id_pet',$Id_pet);
+            $statement -> execute();
+
+            while($response = $statement->fetch()) {
+                $rows[] = $response;
+            }
+
 
             return $rows;
        }
